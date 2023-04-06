@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+
+
+<body>
+    <div id="overlayCSS"></div>
+    <div class="main">
+
+    <form method="post">
+            <div class="form-holder">
+            {% csrf_token %}
+
+            <div class="brand-input">
+                <label for="brand">Select a brand</label>
+                <select name="brand" id="selection" onchange="changed($('#selection').val())">
+                    <option disabled selected value>--select a brand--</option>
+                </select>
+            </div>
+
+            <div class="model-input">
+                <label for="brand">Select a model</label>
+                <select name="model" id="model_selection">
+                    <option disabled selected value>--select a brand--</option>
+                </select>
+            </div>
+
+            <div class="age-input">
+                <label for="brand">Select age of the vehicle</label>
+                <select name="age" id="age">
+                    <option disabled selected value>--Select age--</option>
+                </select>
+            </div>
+
+            <div class="km-input">
+                <label for="km_driven">Enter KMs driven</label>
+                <input type="number" name="km_driven" id="" placeholder="KMs driven">
+            </div>
+
+            <div class="mileage-input">
+                <label for="mileage">Enter milage</label>
+                <input type="number" name="mileage" id="" placeholder="Enter mileage">
+            </div>
+
+            <div class="cc-input">
+                <label for="cc">Enter engine capactity in cc</label>
+                <input type="number" name="cc" id="" placeholder="Enter engine capactity">
+            </div>
+
+            <div class="bhp-input">
+                <label for="bhp">Enter max-power in bhp</label>
+                <input type="number" name="bhp" id="" placeholder="Enter max-power">
+            </div>
+
+            <div class="seats-input">
+                <label for="seats">Enter number of seats</label>
+                <input type="number" name="seats" id="" placeholder="Enter number of seats">
+            </div>
+
+            <div class="cost-input">
+                <label for="cost">Enter cost price</label>
+                <input type="number" name="cost" id="" placeholder="Enter cost price">
+            </div>
+
+            <div class="fuel-input">
+                <label for="brand">Select fuel type</label>
+                <select name="fuel" id="">
+                    <option disabled selected value>--Select fuel type--</option>
+                    <option value="Petrol">Petrol</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="Electric">Electric</option>
+                    <option value="CNG">CNG</option>
+                    <option value="LPG">LPG</option>
+                </select>
+            </div>
+
+            <div class="transmission-input">
+                <label for="brand">Select transmission type</label>
+                <select name="transmission" id="">
+                    <option disabled selected value>--Select transmission type--</option>
+                    <option value="Manual">Manual</option>
+                    <option value="Automatic">Automatic</option>
+                </select>
+            </div>
+
+            <div class="submit-input">
+                <input type="submit" value="Submit">
+            </div>
+        </div>
+    </form>
+
+    <div class="price">
+        {% if prediction %}
+        {% for price in prediction %}
+        <h1>The estimated price is {{price}}</h1>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+</body>
+
+<script src="{% static 'jquery.js' %}"></script>
+<script src="{% static 'script.js' %}"></script>
+
+</html>

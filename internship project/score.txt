@@ -1,0 +1,4 @@
+Train R2-score :0.98
+Test R2-score :0.96
+Train CV scores :[0.74659799 0.95706689 0.94049754]
+Train CV mean :0.88
